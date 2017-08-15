@@ -1,0 +1,45 @@
+<div class="tab-pane">
+  <div class="result-box" *ngFor="let el of searchresult">
+      <div class="row">
+        <div class="col-md-1">
+            <label class="control-label">{{el.airline.name}} ({{el.airline.code}})</label>
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+              <label class="col-md-2 control-label">FROM:</label>
+            <p class="col-md-10">{{el.start.airportName}} ({{el.start.airportCode}})</p>
+          </div>
+          <div class="row">
+            <label class="col-md-2 control-label">Date:</label>
+            <p class="col-md-10">{{el.start.dateTime  | date}}</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+              <label class="col-md-2 control-label">To:</label>
+              <p class="col-md-10 control-label"> {{el.finish.airportName}} ({{el.finish.airportCode}})</p>
+          </div>
+          <div class="row">
+              <label class="col-md-2 control-label">Date:</label>
+              <p class="col-md-10 control-label">{{el.finish.dateTime | date}}</p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            <label class="control-label">Duration:</label>
+          </div>
+          <div class="row">
+              <label class="control-label"> {{el.durationMin}} min.</label>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            <label class="control-label">Price:</label>
+          </div>
+          <div class="row">
+              <label class="control-label">{{el.price}} $</label>
+          </div>
+        </div>
+      </div>
+   </div>
+</div>

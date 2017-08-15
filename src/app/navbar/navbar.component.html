@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Flight search</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li [ngClass]="searchFormClass" (click)="searchForm()"><span>Search</span></li>
+      <li [ngClass]="airlinesFormClass" (click)="airlinesForm()"><span>Airlines</span></li>
+      <li [ngClass]="airortsFormClass" (click)="airportsForm()"><span>Airports</span></li>
+    </ul>
+  </div>
+</nav>

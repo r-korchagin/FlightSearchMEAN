@@ -1,0 +1,21 @@
+<div class="content-wrapper">
+  <p class="content-subtitle"> Airlines </p>
+  <div id="airlines-content">
+  <div class="tab-pane">
+    	<table class="table table-hover table-color">
+				  <thead>
+					<tr>
+					  <th>Airline Code</th>
+					  <th>Airline Name</th>
+					</tr>
+				  </thead>
+				  <tbody>
+            <tr *ngFor="let airline of airlines">
+              <td>{{airline.code}}</td>
+              <td>{{airline.name}}</td>
+            </tr>
+          </tbody>
+				</table>
+	</div>
+</div>
+</div>

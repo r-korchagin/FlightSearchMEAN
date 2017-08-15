@@ -1,0 +1,10 @@
+<section [ngClass]="section[0]">
+		<app-search *ngIf="resultView === false" (findAirlines)="findAirlines($event)"></app-search>
+		<app-searchresult *ngIf="resultView === true" [searchData]="searchData" (findAirlines)="findAirlines($event)"></app-searchresult>
+</section>
+<section [ngClass]="section[1]">
+		<app-airlines></app-airlines>
+</section>
+<section [ngClass]="section[2]">
+		<app-airports></app-airports>
+</section>

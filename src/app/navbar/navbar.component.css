@@ -1,0 +1,26 @@
+
+.navbar-inverse .navbar-nav>.active>span, .navbar-inverse .navbar-nav>.active>span:hover, .navbar-inverse .navbar-nav>.active>span:focus {
+    color: #fff;
+    background-color: #080808;
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-nav>li>span {
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+      color: #9d9d9d;
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+      line-height: 20px;
+}
+
+.navbar-inverse .navbar-nav>li>span:hover, .navbar-inverse .navbar-nav>li>span:focus {
+    cursor:pointer;
+}
+
+@media (min-width: 768px){
+  .navbar-inverse .navbar-nav>li>span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
