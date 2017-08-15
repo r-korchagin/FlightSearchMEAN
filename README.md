@@ -12,10 +12,11 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 ## Run Server
 
-git clone https://github.com/r-korchagin/FlightSearchMEAN.git
-cd ../dist
-npm install
-node server   or    bash start.sh
+`git clone https://github.com/r-korchagin/FlightSearchMEAN.git`
+`cd ../dist`
+`npm install`
+`node server`   or    `bash start.sh`
+
 Navigate to `http://localhost:3000/`
 
 
