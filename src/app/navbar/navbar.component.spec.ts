@@ -25,4 +25,27 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set searchForm', () => {
+    component.searchForm();
+    expect(component.searchFormClass.active).toBeTruthy();
+    expect(component.airlinesFormClass.active).not.toBeTruthy();
+    expect(component.airortsFormClass.active).not.toBeTruthy();
+  });
+
+  it('should set airlinesForm', () => {
+    component.airlinesForm();
+    expect(component.searchFormClass.active).not.toBeTruthy();
+    expect(component.airlinesFormClass.active).toBeTruthy();
+    expect(component.airortsFormClass.active).not.toBeTruthy();
+  });
+
+  it('should set airportsForm', () => {
+    component.airportsForm();
+    expect(component.searchFormClass.active).not.toBeTruthy();
+    expect(component.airlinesFormClass.active).not.toBeTruthy();
+    expect(component.airortsFormClass.active).toBeTruthy();
+  });
+
+
 });

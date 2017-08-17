@@ -17,8 +17,8 @@ export class SearchresultService {
     let options = new RequestOptions();
     options.search = params;
 
-    //return this.http.get('../public/searchresult.json', options)
-    return this.http.get('/flight_search/', options)
+    return this.http.get('../public/searchresult.json', options)
+    //return this.http.get('/flight_search/', options)
     // Retry this request up to 3 times.
    .retry(3)
    // Maping result into Object

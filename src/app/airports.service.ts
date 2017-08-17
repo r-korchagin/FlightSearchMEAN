@@ -9,8 +9,10 @@ export class AirportsService {
   constructor(private http: Http) { }
 
   fetchData(){
-    return this.http.get('/airports')
-    //return this.http.get('../public/airports.json')
+    /* Prod */
+    //return this.http.get('/airports')
+    /* Dev */
+    return this.http.get('../public/airports.json')
     // Retry this request up to 3 times.
    .retry(3)
    // Maping result into Object
