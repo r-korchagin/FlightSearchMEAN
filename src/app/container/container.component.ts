@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SectionComponent } from './section/section.component'
+import { SectionComponent } from './section/section.component';
 
 @Component({
   selector: 'app-container',
@@ -10,7 +10,7 @@ export class ContainerComponent implements OnInit {
 
   constructor() { }
 
-  @Input() section;
+  @Input('section')
 
   ngOnInit() {
   }

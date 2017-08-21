@@ -26,12 +26,12 @@
       it('should return an Observable<Array<Airports>>',
           inject([AirlinesService , XHRBackend ], (airlinesService , mockBackend) => {
 
-            const mockResponse = [{"code":"SU","name":"Aeroflot"},
-              {"code":"MU","name":"China Eastern"},
-              {"code":"EK","name":"Emirates"},
-              {"code":"KE","name":"Korean Air lines"},
-              {"code":"QF","name":"Qantas"},
-              {"code":"SQ","name":"Singapore Airlines"}];
+            const mockResponse = [{ 'code': 'SU', 'name': "Aeroflot" },
+            { 'code': "MU", "name": "China Eastern" },
+            { "code": "EK", "name": "Emirates" },
+            { "code": "KE", "name": "Korean Air lines" },
+            { "code": "QF", 'name': 'Qantas' },
+            { 'code': 'SQ', 'name': 'Singapore Airlines' }];
 
             mockBackend.connections.subscribe((connection) => {
               connection.mockRespond(new Response(new ResponseOptions({

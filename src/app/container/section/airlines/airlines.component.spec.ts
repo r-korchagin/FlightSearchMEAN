@@ -2,39 +2,38 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 import { AirlinesComponent } from './airlines.component';
 import { AirlinesService } from '../../../airlines.service'
 
 class MockAirlinesService extends AirlinesService {
-  constructor(){ super(null) }
+  constructor() { super(null) }
 
-  fetchData(){
-    return Observable.of( [{"code":"SU","name":"Aeroflot"},
-      {"code":"MU","name":"China Eastern"},
-      {"code":"EK","name":"Emirates"},
-      {"code":"KE","name":"Korean Air lines"},
-      {"code":"QF","name":"Qantas"},
-      {"code":"SQ","name":"Singapore Airlines"}] )
+  fetchData() {
+    return Observable.of([{ 'code': 'SU', 'name': 'Aeroflot' },
+    { 'code': 'MU', 'name': 'China Eastern' },
+    { 'code': 'EK', 'name': 'Emirates' },
+    { 'code': 'KE', 'name': 'Korean Air lines' },
+    { 'code': 'QF', 'name': 'Qantas' },
+    { 'code': 'SQ', 'name': 'Singapore Airlines' }])
   }
 }
 
 describe('AirlinesComponent', () => {
   let component: AirlinesComponent;
-  let airportService: MockAirlinesService;
   let fixture: ComponentFixture<AirlinesComponent>;
 
-  let de, hd:      DebugElement;
-  let el, elhd:      HTMLElement;
+  let de, hd: DebugElement;
+  let el, elhd: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[],
-      declarations: [ AirlinesComponent ],
-      providers:[ {provide: AirlinesService, useClass: MockAirlinesService} ]
+      imports: [],
+      declarations: [AirlinesComponent],
+      providers: [{ provide: AirlinesService, useClass: MockAirlinesService }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

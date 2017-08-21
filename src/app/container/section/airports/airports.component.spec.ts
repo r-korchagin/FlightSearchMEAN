@@ -2,36 +2,46 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 import { AirportsComponent } from './airports.component';
-import {AirportsService} from '../../../airports.service'
+import { AirportsService } from '../../../airports.service'
 
 class MockAirportService extends AirportsService {
-  constructor(){ super(null) }
+  constructor() { super(null) }
 
-  fetchData(){
-    return Observable.of( [
-          {"airportCode":"JFK","airportName":"John F Kennedy Intl","cityCode":"NYC","cityName":"New York","countryCode":"US","countryName":"United States","latitude":40.639751,"longitude":-73.778925,"stateCode":"NY","timeZone":"America/New_York"}
-        ] )
+  fetchData() {
+    return Observable.of([
+      {
+        'airportCode': 'JFK',
+        'airportName': 'John F Kennedy Intl',
+        'cityCode': 'NYC',
+        'cityName': 'New York',
+        'countryCode': 'US',
+        'countryName': 'United States',
+        'latitude': 40.639751,
+        'longitude': -73.778925,
+        'stateCode': 'NY',
+        'timeZone': 'America/New_York'
+      }
+    ]);
   }
 }
 
 describe('AirportsComponent', () => {
   let component: AirportsComponent;
-  let airportService: MockAirportService;
   let fixture: ComponentFixture<AirportsComponent>;
 
-  let de, hd:      DebugElement;
-  let el, elhd:      HTMLElement;
+  let de, hd: DebugElement;
+  let el, elhd: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[],
-      declarations: [ AirportsComponent ],
-      providers:[ {provide: AirportsService, useClass: MockAirportService} ]
+      imports: [],
+      declarations: [AirportsComponent],
+      providers: [{ provide: AirportsService, useClass: MockAirportService }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

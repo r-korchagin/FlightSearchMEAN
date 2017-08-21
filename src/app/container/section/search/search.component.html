@@ -1,50 +1,50 @@
 <div class="content-wrapper">
-    <p class="content-subtitle"> Search {{header}} flight</p>
-    <div class="well-searchbox">
-       <form class="form-horizontal" role="form">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="col-md-4 control-label">From</label>
-                  <div class="col-md-8">
-                    <select [(ngModel)]="fromAirport" class="form-control" name="select-from-airport">
+  <p class="content-subtitle"> Search {{header}} flight</p>
+  <div class="well-searchbox">
+    <form class="form-horizontal" role="form">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="col-md-4 control-label">From</label>
+            <div class="col-md-8">
+              <select [(ngModel)]="fromAirport" class="form-control" name="select-from-airport">
                       <option value="" disabled selected>Please select airport</option>
                       <option *ngFor="let airport of airports" value="{{airport.airportCode}}">{{airport.airportName}}</option>
                     </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="col-md-4 control-label">To</label>
-                  <div class="col-md-8">
-                    <select [(ngModel)]="toAirport" class="form-control" name="select-to-airport">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="col-md-4 control-label">To</label>
+            <div class="col-md-8">
+              <select [(ngModel)]="toAirport" class="form-control" name="select-to-airport">
                       <option value="" disabled selected>Please select airport</option>
                       <option *ngFor="let airport of airports" value="{{airport.airportCode}}">{{airport.airportName}}</option>
                     </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="col-md-4 control-label">Date</label>
-                  <div class="col-md-8">
-                    <div class='input-group date'>
-                      <input type="text" class="form-control" value="{{getFormatedDate()}}" (focus)="showDatePicker = true" name = "flightDate">
-                      <span class="input-group-addon">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="col-md-4 control-label">Date</label>
+            <div class="col-md-8">
+              <div class='input-group date'>
+                <input type="text" class="form-control" value="{{getFormatedDate()}}" (focus)="showDatePicker = true" name="flightDate">
+                <span class="input-group-addon">
     										<span class="glyphicon glyphicon-calendar" (click)="showDatePicker = true"></span>
-    									</span>
-                    </div>
-                      <div *ngIf="showDatePicker" style="position: absolute; z-index:10; min-height:290px;">
-                        <datepicker [(ngModel)]="searchDate" [minDate]="minDate" [showWeeks]="true"  name = "flightDate" (selectionDone)="showDatePicker = false"></datepicker>
-                      </div>
-                  </div>
-                </div>
+                </span>
+              </div>
+              <div *ngIf="showDatePicker" style="position: absolute; z-index:10; min-height:290px;">
+                <datepicker [(ngModel)]="searchDate" [minDate]="minDate" [showWeeks]="true" name="flightDate" (selectionDone)="showDatePicker = false"></datepicker>
               </div>
             </div>
-        </form>
-    </div>
-    <div class="button-container" id="search-flight-data">
-      <p class="button" (click)="findResult()"><span class="glyphicon glyphicon-search"></span> Search flight</p>
-    </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="button-container" id="search-flight-data">
+    <p class="button" (click)="findResult()"><span class="glyphicon glyphicon-search"></span> Search flight</p>
+  </div>
 </div>

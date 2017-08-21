@@ -12,12 +12,12 @@ import { SearchresultComponent } from './searchresult/searchresult.component'
 })
 export class SectionComponent implements OnInit {
 
-  @Input() section
+  @Input() section: any;
 
   public resultView = false;
   public searchData = {};
 
-  findAirlines(e){
+  findAirlines(e) {
     this.searchData = e;
     this.resultView = true;
   }

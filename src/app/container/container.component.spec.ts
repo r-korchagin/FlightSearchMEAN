@@ -9,7 +9,7 @@ import { ContainerComponent } from './container.component';
   selector: 'app-section'
 })
 class MockSearchresultDirective {
-  @Input() section
+  @Input() section: any;
 }
 
 describe('ContainerComponent', () => {
@@ -18,10 +18,10 @@ describe('ContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContainerComponent,
-        MockSearchresultDirective ]
+      declarations: [ContainerComponent,
+        MockSearchresultDirective]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

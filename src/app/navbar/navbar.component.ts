@@ -11,27 +11,27 @@ export class NavbarComponent implements OnInit {
   airlinesFormClass = { 'active': false };
   airortsFormClass = { 'active': false };
 
-  @Output()  activeSection = new EventEmitter();
+  @Output() activeSection = new EventEmitter();
 
-  searchForm(){
+  searchForm() {
     this.searchFormClass['active'] = true;
     this.airlinesFormClass['active'] = false;
     this.airortsFormClass['active'] = false;
-    this.activeSection.emit({'search':true, 'airlines':false, 'airports':false });
+    this.activeSection.emit({ 'search': true, 'airlines': false, 'airports': false });
   }
 
   airlinesForm() {
     this.searchFormClass['active'] = false;
     this.airlinesFormClass['active'] = true;
     this.airortsFormClass['active'] = false;
-    this.activeSection.emit({'search':false, 'airlines':true, 'airports':false });
+    this.activeSection.emit({ 'search': false, 'airlines': true, 'airports': false });
   }
 
   airportsForm() {
     this.searchFormClass['active'] = false;
     this.airlinesFormClass['active'] = false;
     this.airortsFormClass['active'] = true;
-    this.activeSection.emit({'search':false, 'airlines':false, 'airports':true });
+    this.activeSection.emit({ 'search': false, 'airlines': false, 'airports': true });
   }
 
   constructor() { }

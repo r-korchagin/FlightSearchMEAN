@@ -14,9 +14,9 @@ export class AirlinesComponent implements OnInit {
 
   ngOnInit() {
     this.data.fetchData().subscribe(
-      data => {this.airlines = data},
+      data => { this.airlines = data; },
       err => {
-        console.error("Problem request", err)
+        console.error('Problem request', err)
       }
     );
   }

@@ -9,11 +9,11 @@ import { AirportsService } from '../../../airports.service'
 })
 export class SearchComponent implements OnInit {
 
-  header = "Test Header";
+  header = 'Test Header';
   public searchDate = new Date();
   public airports = [];
-  public fromAirport = "";
-  public toAirport = "";
+  public fromAirport = '';
+  public toAirport = '';
 
   @Output() findAirlines = new EventEmitter();
 
@@ -22,20 +22,25 @@ export class SearchComponent implements OnInit {
   }
 
   public getFormatedDate() {
-    return moment(this.getDate()).format("YYYY-MM-DD");
+    return moment(this.getDate()).format('YYYY-MM-DD');
   }
 
-  findResult(){
-      this.findAirlines.emit({ "from":this.fromAirport, "to":this.toAirport, "date":this.getFormatedDate() });
+  findResult() {
+    this.findAirlines.emit(
+      {
+        'from': this.fromAirport,
+        'to': this.toAirport,
+        'date': this.getFormatedDate()
+      });
   }
 
   constructor(private data: AirportsService) { }
 
   ngOnInit() {
     this.data.fetchData().subscribe(
-      data => {this.airports = data;},
+      data => { this.airports = data; },
       err => {
-        console.error("Problem request", err)
+        console.error('Problem request', err)
       }
     );
   }

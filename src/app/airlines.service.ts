@@ -10,7 +10,7 @@ export class AirlinesService {
 
   fetchData(){
     /* Prod */
-    //return this.http.get('/airlines')
+    // return this.http.get('/airlines')
     /* Dev */
     return this.http.get('../public/airlines.json')
     // Retry this request up to 3 times.
