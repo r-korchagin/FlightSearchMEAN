@@ -1,34 +1,95 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { DebugElement, Directive, EventEmitter, Input, Output } from '@angular/core';
+
+@Directive({
+  selector: 'app-navbar'
+})
+class MockNavbarDirective {
+  @Output()  activeSection = new EventEmitter<void>();
+}
+
+@Directive({
+  selector: 'app-container'
+})
+class MockContainerDirective {
+  @Input() section;
+}
 
 describe('AppComponent', () => {
+  let fixture : ComponentFixture<AppComponent>;
+  let app : AppComponent;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MockNavbarDirective,
+        MockContainerDirective
       ],
     });
     TestBed.compileComponents();
   });
 
-  xit('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+  });
+
+  it('should create the app', async(() => {
+    fixture.detectChanges();
     expect(app).toBeTruthy();
   }));
 
-  xit(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+  it('should setSection section', async(() => {
+    app.setSection(0);
+    fixture.detectChanges();
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
+    app.setSection(1);
+    fixture.detectChanges();
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
+    app.setSection(2);
+    fixture.detectChanges();
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
   }));
 
-  xit('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should activeSection section', async(() => {
+    app.activeSection({'search':true, 'airlines':false, 'airports':false });
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
+    app.activeSection({'search':false, 'airlines':true, 'airports':false });
+    fixture.detectChanges();
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': false, 'up-scroll': true},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
+    app.activeSection({'search':false, 'airlines':false, 'airports':true });
+    fixture.detectChanges();
+    expect(app.section).toEqual([
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': true, 'up-scroll': false},
+      {'background': true, 'down-scroll': false, 'up-scroll': true}
+    ]);
   }));
+
 });

@@ -21,8 +21,7 @@ export class AppComponent {
            this.section[item].background = true;
            this.section[item]['down-scroll'] = false;
            this.section[item]['up-scroll'] = true;
-        }
-        else {
+        } else {
           this.section[item].background = true;
           this.section[item]['down-scroll'] = true;
           this.section[item]['up-scroll'] = false;

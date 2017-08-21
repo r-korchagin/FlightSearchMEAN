@@ -14,7 +14,10 @@ export class AirportsComponent implements OnInit {
 
   ngOnInit() {
     this.data.fetchData().subscribe(
-      data => {this.airports = data},
+      data => {
+        if (data instanceof Array){this.airports = data;}
+        else {console.log(data); this.airports = []}
+      },
       err => {
         console.error("Problem request", err)
       }
